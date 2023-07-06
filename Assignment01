@@ -1,0 +1,673 @@
+Solution 1 :
+
+def reverse_string(string):
+    reversed_string = ""
+    for i in range(len(string) - 1, -1, -1):
+        reversed_string += string[i]
+    return reversed_string
+
+input_string = input()
+reversed_string = reverse_string(input_string)
+print(reversed_string)  
+
+
+Solution 2 :
+
+def is_palindrome(string):
+    reversed_string = reverse_string(string)
+    return string == reversed_string
+
+input_string = input()
+print(is_palindrome(input_string))  
+
+
+Solution 3 :
+
+def find_largest_element(lst):
+    largest_element = lst[0]
+    for num in lst:
+        if num > largest_element:
+            largest_element = num
+    return largest_element
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+largest_num = find_largest_element(numbers)
+print(largest_num)
+
+
+Solution 4 :
+
+def count_occurrences(lst):
+    occurrence_count = {}
+    for item in lst:
+        if item in occurrence_count:
+            occurrence_count[item] += 1
+        else:
+            occurrence_count[item] = 1
+    return occurrence_count
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+occurrences = count_occurrences(numbers)
+print(occurrences)
+
+
+Solution 5 :
+
+def find_second_largest(lst):
+    largest = max(lst[0], lst[1])
+    second_largest = min(lst[0], lst[1])
+    for i in range(2, len(lst)):
+        if lst[i] > largest:
+            second_largest = largest
+            largest = lst[i]
+        elif lst[i] > second_largest and lst[i] < largest:
+            second_largest = lst[i]
+    return second_largest
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+second_largest = find_second_largest(numbers)
+print(second_largest)
+
+
+Solution 6 :
+
+def remove_duplicates(lst):
+    return list(set(lst))
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+unique_numbers = remove_duplicates(numbers)
+print(unique_numbers)
+
+Solution 7 :
+
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+number = int(input("Enter a number: "))
+factorial_value = factorial(number)
+print(factorial_value)
+
+
+Solution 8 :
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+number = int(input("Enter a number: "))
+print(is_prime(number))
+
+
+Solution 9 :
+
+def sort_list(lst):
+    return sorted(lst)
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+sorted_numbers = sort_list(numbers)
+print(sorted_numbers)
+
+Solution 10 :
+
+def sum_list(lst):
+    total = 0
+    for num in lst:
+        total += num
+    return total
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+list_sum = sum_list(numbers)
+print(list_sum)
+
+
+Solution 11 :
+
+def find_common_elements(list1, list2):
+    return list(set(list1) & set(list2))
+
+list1 = input("Enter the first list of numbers separated by spaces: ").split()
+list2 = input("Enter the second list of numbers separated by spaces: ").split()
+list1 = [int(num) for num in list1]
+list2 = [int(num) for num in list2]
+common_elements = find_common_elements(list1, list2)
+print(common_elements)
+
+
+Solution 12 :
+
+def is_anagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+string1 = input("Enter the first string: ")
+string2 = input("Enter the second string: ")
+print(is_anagram(string1, string2))
+
+
+Solution 13 :
+
+def permute_string(string):
+    if len(string) == 1:
+        return [string]
+    permutations = []
+    for i in range(len(string)):
+        char = string[i]
+        remaining_chars = string[:i] + string[i + 1:]
+        for perm in permute_string(remaining_chars):
+            permutations.append(char + perm)
+    return permutations
+
+input_string = input("Enter a string: ")
+permutations = permute_string(input_string)
+print(permutations)
+
+
+Solution 14 :
+
+def fibonacci(n):
+    sequence = [0, 1]
+    while len(sequence) < n:
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    return sequence
+
+terms = int(input("Enter the number of terms: "))
+fibonacci_sequence = fibonacci(terms)
+print(fibonacci_sequence)
+
+
+Solution 15 :
+
+def find_median(lst):
+    sorted_list = sorted(lst)
+    n = len(sorted_list)
+    if n % 2 == 0:
+        mid1 = n // 2
+        mid2 = mid1 - 1
+        median = (sorted_list[mid1] + sorted_list[mid2]) / 2
+    else:
+        mid = n // 2
+        median = sorted_list[mid]
+    return median
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [float(num) for num in numbers]
+median = find_median(numbers)
+print(median)
+
+
+Solution 16 :
+
+def is_sorted(lst):
+    return all(lst[i] <= lst[i+1] for i in range(len(lst)-1))
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+print(is_sorted(numbers))
+
+
+Solution 17 :
+
+def find_intersection(list1, list2):
+    set1 = set(list1)
+    set2 = set(list2)
+    intersection = list(set1.intersection(set2))
+    return intersection
+
+list1 = input("Enter the first list of numbers separated by spaces: ").split()
+list2 = input("Enter the second list of numbers separated by spaces: ").split()
+list1 = [int(num) for num in list1]
+list2 = [int(num) for num in list2]
+intersection = find_intersection(list1, list2)
+print(intersection)
+
+
+Solution 18 :
+
+def max_subarray_sum(lst):
+    max_sum = float('-inf')
+    current_sum = 0
+    for num in lst:
+        current_sum += num
+        if current_sum > max_sum:
+            max_sum = current_sum
+        if current_sum < 0:
+            current_sum = 0
+    return max_sum
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+max_sum = max_subarray_sum(numbers)
+print(max_sum)
+
+
+Solution 19 :
+
+def remove_vowels(string):
+    vowels = 'aeiouAEIOU'
+    return ''.join(char for char in string if char not in vowels)
+
+input_string = input("Enter a string: ")
+string_without_vowels = remove_vowels(input_string)
+print(string_without_vowels)
+
+
+Solution 20 :
+
+def reverse_words(sentence):
+    words = sentence.split()
+    reversed_words = ' '.join(reversed(words))
+    return reversed_words
+
+input_sentence = input("Enter a sentence: ")
+reversed_sentence = reverse_words(input_sentence)
+print(reversed_sentence)
+
+
+Solution 21 :
+
+def is_anagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+string1 = input("Enter the first string: ")
+string2 = input("Enter the second string: ")
+print(is_anagram(string1, string2))
+
+
+Solution 22 :
+
+def find_first_non_repeating_char(string):
+    char_count = {}
+    for char in string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    for char in string:
+        if char_count[char] == 1:
+            return char
+    return None
+
+input_string = input("Enter a string: ")
+first_non_repeating_char = find_first_non_repeating_char(input_string)
+print(first_non_repeating_char)
+
+
+Solution 23 :
+
+def find_prime_factors(number):
+    prime_factors = []
+    divisor = 2
+    while divisor <= number:
+        if number % divisor == 0:
+            prime_factors.append(divisor)
+            number = number / divisor
+        else:
+            divisor += 1
+    return prime_factors
+
+number = int(input("Enter a number: "))
+factors = find_prime_factors(number)
+print(factors)
+
+
+Solution 24 :
+
+def is_power_of_two(number):
+    if number <= 0:
+        return False
+    return (number & (number - 1)) == 0
+
+number = int(input("Enter a number: "))
+print(is_power_of_two(number))
+
+
+Solution 25 :
+
+def merge_sorted_lists(list1, list2):
+    merged_list = []
+    i, j = 0, 0
+    while i < len(list1) and j < len(list2):
+        if list1[i] <= list2[j]:
+            merged_list.append(list1[i])
+            i += 1
+        else:
+            merged_list.append(list2[j])
+            j += 1
+    while i < len(list1):
+        merged_list.append(list1[i])
+        i += 1
+    while j < len(list2):
+        merged_list.append(list2[j])
+        j += 1
+    return merged_list
+
+list1 = input("Enter the first sorted list of numbers separated by spaces: ").split()
+list2 = input("Enter the second sorted list of numbers separated by spaces: ").split()
+list1 = [int(num) for num in list1]
+list2 = [int(num) for num in list2]
+merged_list = merge_sorted_lists(list1, list2)
+print(merged_list)
+
+
+Solution 26 :
+
+from collections import Counter
+
+def find_mode(lst):
+    counter = Counter(lst)
+    mode = counter.most_common(1)
+    return mode[0][0]
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+mode_value = find_mode(numbers)
+print(mode_value)
+
+
+Solution 27 :
+
+def find_gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+gcd = find_gcd(num1, num2)
+print(gcd)
+
+
+Solution 28 :
+
+def calculate_square_root(number):
+    if number < 0:
+        return "Invalid input: cannot calculate square root of a negative number."
+    guess = number
+    while True:
+        new_guess = 0.5 * (guess + (number / guess))
+        if abs(new_guess - guess) < 0.0001:  # Adjust the epsilon value for desired precision
+            return new_guess
+        guess = new_guess
+
+number = float(input("Enter a number: "))
+square_root = calculate_square_root(number)
+print(square_root)
+
+
+Solution 29 :
+
+def is_valid_palindrome(string):
+    alphanumeric_string = ''.join(char.lower() for char in string if char.isalnum())
+    return alphanumeric_string == alphanumeric_string[::-1]
+
+input_string = input("Enter a string: ")
+print(is_valid_palindrome(input_string))
+
+
+Solution 30 :
+
+def find_minimum_element(rotated_list):
+    low = 0
+    high = len(rotated_list) - 1
+
+    while low < high:
+        mid = (low + high) // 2
+
+        if rotated_list[mid] > rotated_list[high]:
+            low = mid + 1
+        else:
+            high = mid
+
+    return rotated_list[low]
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+minimum = find_minimum_element(numbers)
+print(minimum)
+
+
+Solution 31 :
+
+def sum_even_numbers(lst):
+    total = 0
+    for num in lst:
+        if num % 2 == 0:
+            total += num
+    return total
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+even_sum = sum_even_numbers(numbers)
+print(even_sum)
+
+
+Solution 32 :
+
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    elif exponent > 0:
+        return base * power(base, exponent - 1)
+    else:
+        return 1 / (base * power(base, -exponent - 1))
+
+base = float(input("Enter the base number: "))
+exponent = int(input("Enter the exponent: "))
+result = power(base, exponent)
+print(result)
+
+
+Solution 33 :
+
+def remove_duplicates(lst):
+    seen = set()
+    result = []
+    for item in lst:
+        if item not in seen:
+            result.append(item)
+            seen.add(item)
+    return result
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+unique_numbers = remove_duplicates(numbers)
+print(unique_numbers)
+
+
+Solution 34 :
+
+def find_longest_common_prefix(strings):
+    if not strings:
+        return ""
+    shortest_string = min(strings, key=len)
+    for i, char in enumerate(shortest_string):
+        for string in strings:
+            if string[i] != char:
+                return shortest_string[:i]
+    return shortest_string
+
+string_list = input("Enter a list of strings separated by spaces: ").split()
+longest_common_prefix = find_longest_common_prefix(string_list)
+print(longest_common_prefix)
+
+
+Solution 35 :
+
+def is_perfect_square(number):
+    if number < 0:
+        return False
+    sqrt = int(number ** 0.5)
+    return sqrt * sqrt == number
+
+number = int(input("Enter a number: "))
+print(is_perfect_square(number))
+
+
+Solution 36 :
+
+def calculate_product(lst):
+    product = 1
+    for num in lst:
+        product *= num
+    return product
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+product = calculate_product(numbers)
+print(product)
+
+
+Solution 37 :
+
+def reverse_sentence(sentence):
+    words = sentence.split()
+    reversed_words = ' '.join(reversed(words))
+    return reversed_words
+
+input_sentence = input("Enter a sentence: ")
+reversed_sentence = reverse_sentence(input_sentence)
+print(reversed_sentence)
+
+
+Solution 38 :
+
+def find_missing_number(lst):
+    n = len(lst) + 1
+    total_sum = (n * (n + 1)) // 2
+    list_sum = sum(lst)
+    return total_sum - list_sum
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+missing_number = find_missing_number(numbers)
+print(missing_number)
+
+
+Solution 39 :
+
+def sum_of_digits(number):
+    sum_digits = 0
+    for digit in str(number):
+        sum_digits += int(digit)
+    return sum_digits
+
+number = int(input("Enter a number: "))
+digit_sum = sum_of_digits(number)
+print(digit_sum)
+
+
+Solution 40 :
+
+def is_valid_palindrome(string):
+    return string == string[::-1]
+
+input_string = input("Enter a string: ")
+print(is_valid_palindrome(input_string))
+
+
+Solution 41 :
+
+def find_smallest_missing_positive(lst):
+    smallest_missing = 1
+    set_lst = set(lst)
+    while smallest_missing in set_lst:
+        smallest_missing += 1
+    return smallest_missing
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+smallest_missing = find_smallest_missing_positive(numbers)
+print(smallest_missing)
+
+
+Solution 42 :
+
+def find_longest_palindrome(string):
+    longest_palindrome = ""
+    for i in range(len(string)):
+        for j in range(i + 1, len(string) + 1):
+            substring = string[i:j]
+            if substring == substring[::-1] and len(substring) > len(longest_palindrome):
+                longest_palindrome = substring
+    return longest_palindrome
+
+input_string = input("Enter a string: ")
+longest_palindrome = find_longest_palindrome(input_string)
+print(longest_palindrome)
+
+Solution 43 :
+
+def count_occurrences(lst, element):
+    count = 0
+    for item in lst:
+        if item == element:
+            count += 1
+    return count
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+element = int(input("Enter the element to count: "))
+occurrences = count_occurrences(numbers, element)
+print(occurrences)
+
+
+Solution 44 :
+
+def is_perfect_number(number):
+    if number < 1:
+        return False
+    divisors = []
+    for i in range(1, int(number ** 0.5) + 1):
+        if number % i == 0:
+            divisors.append(i)
+            if i != 1 and i * i != number:
+                divisors.append(number // i)
+    return sum(divisors) == number
+
+number = int(input("Enter a number: "))
+print(is_perfect_number(number))
+
+
+Solution 45 :
+
+def remove_duplicates(string):
+    unique_chars = []
+    for char in string:
+        if char not in unique_chars:
+            unique_chars.append(char)
+    return ''.join(unique_chars)
+
+input_string = input("Enter a string: ")
+string_without_duplicates = remove_duplicates(input_string)
+print(string_without_duplicates)
+
+
+Solution 46 :
+
+def find_first_missing_positive(lst):
+    n = len(lst)
+    for i in range(n):
+        while lst[i] > 0 and lst[i] <= n and lst[i] != lst[lst[i] - 1]:
+            lst[lst[i] - 1], lst[i] = lst[i], lst[lst[i] - 1]
+    for i in range(n):
+        if lst[i] != i + 1:
+            return i + 1
+    return n + 1
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+first_missing = find_first_missing_positive(numbers)
+print(first_missing)
